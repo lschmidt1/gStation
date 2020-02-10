@@ -1,0 +1,95 @@
+@import "../index.scss";
+
+#form {
+  @include flexbox($fd: column);
+  background: linear-gradient(rgba(20, 20, 20, 0.6), rgba(30, 30, 30, 0.9)),
+    url("../styles/nvidia-background.jpg");
+  background-size: contain;
+  width: 100vw;
+
+  padding-top: $header;
+
+  @include phone {
+    padding-top: $header + 1rem;
+  }
+
+  @include tablet {
+    padding-top: $header + 1rem;
+  }
+
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  #container {
+    justify-content: center;
+
+    > div {
+      @include flexbox(space-between, center, row);
+      margin-bottom: 1rem;
+    }
+
+    //Radio buttons
+    div:nth-child(4) {
+      justify-content: space-between;
+
+      > div {
+        @include flexbox($fd: row);
+        p {
+          padding: 0.1rem;
+        }
+
+        > div {
+          @include flexbox($fd: row);
+          margin-left: 2rem;
+          p {
+            padding: 0.1rem;
+          }
+
+          input {
+            margin-right: 0.1rem;
+          }
+        }
+      }
+    }
+    div:nth-child(5) {
+      justify-content: flex-end;
+    }
+    div:nth-child(6) {
+      padding-top: 1rem;
+      padding-left: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      > div {
+        flex-direction: row;
+        align-items: center;
+      }
+      p{
+        color: white;
+      }
+    }
+    div:nth-child(7) {
+      justify-content: flex-start;
+      padding-top: 2rem;
+    }
+    div:nth-child(8) {
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 2rem;
+      img {
+        width: 20rem;
+        object-fit: contain;
+      }
+      label {
+        margin-top: 0.5rem;
+
+        justify-content: left;
+      }
+    }
+    div:nth-child(9) {
+      justify-content: center;
+      padding-top: 2rem;
+    }
+  }
+}

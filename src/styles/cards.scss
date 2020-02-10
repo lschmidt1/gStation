@@ -1,0 +1,73 @@
+@import "../index.scss";
+
+#cards {
+  @include flexbox($fd: column);
+  background: linear-gradient(rgba(53, 53, 53, 0.5), rgba(63, 63, 63, 0.5)),
+    url("../styles/nvidia-background.jpg");
+  background-size: contain;
+
+  h1 {
+    padding-bottom: 1rem;
+  }
+
+  &:first-child {
+    @include flexbox(flex-start);
+    padding: 1.3rem;
+    padding-left: 5rem;
+    padding-top: $header;
+
+    @include phone {
+      padding-top: $header + 1rem;
+      padding-left: 1.3rem;
+    }
+
+    @include tablet {
+      padding-top: $header + 1rem;
+      padding-left: 1.3rem;
+    }
+
+    #grilla {
+      @include flexbox($fd: row);
+      flex-wrap: wrap;
+      width: 100%;
+
+      > div {
+        img {
+          object-fit: cover;
+          width: 20rem;
+          height: 20rem;
+          @include phone {
+            width: 10rem;
+            height: 10rem;
+          }
+        }
+
+        div {
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          > h2 {
+            width: 50%;
+          }
+          h1 {
+            padding-top: 0.5rem;
+          }
+        }
+
+        @extend %sombra;
+        margin: 1rem;
+        border: 1px solid $verde;
+        border-left: 8px solid $verde;
+        background: $gris;
+        border-radius: $esquina;
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0px 0px 12px 5px $verde;
+          transform: scale(1.1);
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
+}

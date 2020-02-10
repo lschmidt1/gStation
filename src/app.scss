@@ -1,0 +1,225 @@
+@import "./index.scss";
+
+#root {
+  overflow-x: hidden;
+}
+
+#app {
+  @include flexbox($jc: space-between);
+  height: 100vh;
+
+  #sidenav {
+    background: $gris;
+    width: $header;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999999999;
+    position: fixed;
+    #homeButton {
+      width: 3.2rem;
+
+      @include phone {
+        padding: 0.3rem;
+        padding-bottom: 1rem;
+      }
+
+      @include tablet {
+        padding: 0.3rem;
+        padding-bottom: 1rem;
+      }
+
+      > img {
+        width: 3.2rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      p {
+        padding: 0;
+        font-weight: bolder;
+      }
+    }
+
+    @include phone {
+      @include flexbox($fd: row);
+      width: 100%;
+      height: $header + 0.1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    @include tablet {
+      @include flexbox($fd: row);
+      width: 100%;
+      height: $header + 0.1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    ul {
+      @include flexbox(flex-start, center, column);
+      height: 100%;
+      padding-top: 2rem;
+
+      @include phone {
+        @include flexbox(flex-start, center, row);
+        width: 100%;
+        padding-left: 0;
+        padding-top: 0;
+      }
+
+      @include tablet {
+        @include flexbox(flex-start, center, row);
+        width: 100%;
+        padding-left: 0;
+        padding-top: 0;
+      }
+
+      li {
+        &:nth-child(2) {
+          margin-top: 3rem;
+
+          @include phone {
+            margin-top: 0;
+          }
+
+          @include tablet {
+            margin-top: 0;
+          }
+        }
+
+        @include phone {
+          @include flexbox(flex-start, center, row);
+          width: 100%;
+        }
+
+        @include tablet {
+          @include flexbox(flex-start, center, row);
+          width: 100%;
+          padding-left: 2rem;
+        }
+
+        #navItem {
+          @include flexbox($fd: row);
+          margin: 1rem 0;
+          background-color: $opaco;
+          padding: 12px 16px;
+          font-size: 0;
+          display: flex;
+          border-radius: 0 15px 15px 0;
+
+          &:hover {
+            font-size: initial;
+            display: flex;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+            transform: translateX(25%);
+          }
+
+          @include phone {
+            @include flexbox(flex-start, center, row);
+            font-size: initial;
+            border-radius: 15px;
+            display: flex;
+            &:hover {
+              box-shadow: 0px 0px 12px 5px $verde;
+              transform: scale(1.05);
+              transition: all 0.5s;
+              transform: none;
+            }
+          }
+
+          @include tablet {
+            font-size: initial;
+            border-radius: 15px;
+            display: flex;
+            &:hover {
+              box-shadow: 0px 0px 12px 5px $verde;
+              transform: scale(1.05);
+              transition: all 0.5s;
+              transform: none;
+            }
+          }
+
+          img {
+            width: 2rem;
+            padding-left: 0.2rem;
+            @include phone {
+              display: none;
+            }
+          }
+        }
+        p {
+          padding: 0;
+          font-weight: bold;
+        }
+      }
+
+      #profileImg {
+        @include flexbox(flex-start, center, column);
+        margin: 0;
+
+        @include phone {
+          @include flexbox(flex-start, center, row);
+          padding-left: 0.5rem;
+        }
+
+        @include tablet {
+          @include flexbox(flex-start, center, row);
+          padding-left: 1rem;
+        }
+
+        img {
+          border-radius: 50%;
+          object-fit: cover;
+          width: 3rem;
+          height: 3rem;
+          &:hover {
+            box-shadow: 0px 0px 12px 5px $verde;
+            transform: scale(1.01);
+            transition: all 0.5s;
+            cursor: pointer;
+          }
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        #dropdownMenu {
+          height: 6.3rem;
+          width: 8rem;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          background-color: $opaco;
+          z-index: 1;
+          display: flex;
+          position: absolute;
+          margin-top: 3rem;
+          margin-left: 3rem;
+          transition: all 0.3s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+          border-radius: 15px;
+
+          a {
+            padding: 0.6rem;
+            &:hover {
+              cursor: pointer;
+              background-color: $gris;
+              border-radius: 15px;
+
+            }
+          }
+
+          img {
+            width: 2rem;
+          }
+        }
+
+        /* Links inside the dropdown */
+      }
+    }
+  }
+  main {
+    background-color: $fondo;
+  }
+}
